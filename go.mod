@@ -1,3 +1,3 @@
-module github.com/vadiminshakov/exmo
+module github.com/vladivolo/exmo
 
-go 1.12
+go 1.13

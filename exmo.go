@@ -133,8 +133,14 @@ func (ex *Exmo) Do_sign(message string) string {
 */
 
 // GetTrades return list of the deals on currency pairs
-func (ex *Exmo) GetTrades(pair string) (response ApiResponse, err error) {
-	response, err = ex.Api_query("public", "trades", ApiParams{"pair": pair})
+func (ex *Exmo) GetTrades(pair string, limit int) (response ApiResponse, err error) {
+	str_limit := "100"
+
+	if limit > 0 && limit < 1000 {
+		str_limit = strconv.Itoa(limit)
+	}
+
+	response, err = ex.Api_query("public", "trades", ApiParams{"pair": pair, "limit": str_limit})
 	CheckErr(err)
 	return
 }

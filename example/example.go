@@ -24,7 +24,7 @@ import (
 	_ "strconv"
 	"time"
 
-	"github.com/vadiminshakov/exmo"
+	"github.com/vladivolo/exmo"
 )
 
 func main() {
@@ -36,7 +36,7 @@ func main() {
 
 	api := exmo.Api(key, secret)
 
-	resultTrades, err := api.GetTrades("BTC_RUB")
+	resultTrades, err := api.GetTrades("BTC_RUB", 2)
 	if err != nil {
 		fmt.Errorf("api error: %s\n", err)
 	} else {
